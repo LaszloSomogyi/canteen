@@ -9,6 +9,8 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
     private Long id;
+    @OneToOne
+    @JoinColumn(name = "client_id", nullable = false)
     private Client client;
     @Column(name = "order_date", columnDefinition = "DATE")
     private LocalDate orderDate;
