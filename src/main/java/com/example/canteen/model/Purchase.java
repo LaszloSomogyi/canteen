@@ -1,10 +1,11 @@
 package com.example.canteen.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
-public class Order {
+public class Purchase implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
@@ -12,21 +13,21 @@ public class Order {
     @OneToOne
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
-    @Column(name = "order_date", columnDefinition = "DATE")
-    private LocalDate orderDate;
+    @Column(name = "purchase_date", columnDefinition = "DATE")
+    private LocalDate PurchaseDate;
 
-    public Order() {
+    public Purchase() {
     }
 
-    public Order(Client client, LocalDate orderDate) {
+    public Purchase(Client client, LocalDate PurchaseDate) {
         this.client = client;
-        this.orderDate = orderDate;
+        this.PurchaseDate = PurchaseDate;
     }
 
-    public Order(Long id, Client client, LocalDate orderDate) {
+    public Purchase(Long id, Client client, LocalDate PurchaseDate) {
         this.id = id;
         this.client = client;
-        this.orderDate = orderDate;
+        this.PurchaseDate = PurchaseDate;
     }
 
     public Long getId() {
@@ -45,20 +46,20 @@ public class Order {
         this.client = client;
     }
 
-    public LocalDate getOrderDate() {
-        return orderDate;
+    public LocalDate getPurchaseDate() {
+        return PurchaseDate;
     }
 
-    public void setOrderDate(LocalDate orderDate) {
-        this.orderDate = orderDate;
+    public void setPurchaseDate(LocalDate purchaseDateDate) {
+        this.PurchaseDate = purchaseDateDate;
     }
 
     @Override
     public String toString() {
-        return "Order{" +
+        return "Purchase{" +
                 "id=" + id +
                 ", client=" + client +
-                ", orderDate=" + orderDate +
+                ", purchaseDate=" + PurchaseDate +
                 '}';
     }
 }

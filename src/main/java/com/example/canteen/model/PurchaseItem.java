@@ -1,33 +1,34 @@
 package com.example.canteen.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class OrderItem {
+public class PurchaseItem implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
     private Long id;
     @OneToOne
-    @JoinColumn(name = "order_id", nullable = false)
-    private Order order;
+    @JoinColumn(name = "purchase_id", nullable = false)
+    private Purchase purchase;
     @OneToOne
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
     private Integer qty;
 
-    public OrderItem() {
+    public PurchaseItem() {
     }
 
-    public OrderItem(Order order, Product product, Integer qty) {
-        this.order = order;
+    public PurchaseItem(Purchase purchase, Product product, Integer qty) {
+        this.purchase = purchase;
         this.product = product;
         this.qty = qty;
     }
 
-    public OrderItem(Long id, Order order, Product product, Integer qty) {
+    public PurchaseItem(Long id, Purchase purchase, Product product, Integer qty) {
         this.id = id;
-        this.order = order;
+        this.purchase = purchase;
         this.product = product;
         this.qty = qty;
     }
@@ -40,12 +41,12 @@ public class OrderItem {
         this.id = id;
     }
 
-    public Order getOrder() {
-        return order;
+    public Purchase getPurchase() {
+        return purchase;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setPurchase(Purchase purchase) {
+        this.purchase = purchase;
     }
 
     public Product getProduct() {
@@ -66,9 +67,9 @@ public class OrderItem {
 
     @Override
     public String toString() {
-        return "OrderItem{" +
+        return "PurchaseItem{" +
                 "id=" + id +
-                ", order=" + order +
+                ", Purchase=" + purchase +
                 ", product=" + product +
                 ", qty=" + qty +
                 '}';
