@@ -6,6 +6,8 @@ A rendeléseket adatbázisban tároljuk - és havi szintű riportokat kell tudnu
 
 SQL Scripts: 
 
+CREATE DATABASE `canteen` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_hungarian_ci */;
+
 CREATE TABLE `canteen`.`client` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
