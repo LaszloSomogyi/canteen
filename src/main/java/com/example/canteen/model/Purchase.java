@@ -10,7 +10,7 @@ public class Purchase implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
     private Long id;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
     @Column(name = "purchase_date", columnDefinition = "DATE")

@@ -1,5 +1,6 @@
 package com.example.canteen.service;
 
+import com.example.canteen.exceptions.PurchaseNotFoundException;
 import com.example.canteen.model.Purchase;
 import com.example.canteen.repo.PurchaseRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,10 @@ public class PurchaseService {
 
     public List<Purchase> getAllPurchases() {
         return purchaseRepo.findAll();
+    }
+
+    public Purchase findPurchaseById(Long id) {
+        return purchaseRepo.findPurchaseById(id).orElseThrow(() -> new PurchaseNotFoundException("Non-existent purchase!"));
     }
 
 }

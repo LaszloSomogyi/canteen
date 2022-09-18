@@ -9,11 +9,11 @@ public class PurchaseItem implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
     private Long id;
-    @OneToOne
-    @JoinColumn(name = "purchase_id", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "purchase_id", nullable = false, insertable = false, updatable = false)
     private Purchase purchase;
-    @OneToOne
-    @JoinColumn(name = "product_id", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "product_id", nullable = false, insertable = false, updatable = false)
     private Product product;
     private Integer qty;
 

@@ -1,5 +1,7 @@
 package com.example.canteen.service;
 
+import com.example.canteen.exceptions.PurchaseItemNotFoundException;
+import com.example.canteen.model.Purchase;
 import com.example.canteen.model.PurchaseItem;
 import com.example.canteen.repo.PurchaseItemRepo;
 import com.example.canteen.repo.PurchaseRepo;
@@ -18,7 +20,11 @@ public class PurchaseItemService {
         this.purchaseItemRepo = purchaseItemRepo;
     }
 
-    public List<PurchaseItem> getAllPurchases() {
+    public List<PurchaseItem> getAllPurchaseItems() {
         return purchaseItemRepo.findAll();
+    }
+
+    public PurchaseItem findPurchaseItemById(Long purchaseItemId) {
+        return purchaseItemRepo.findPurchaseItemById(purchaseItemId).orElseThrow(() -> new PurchaseItemNotFoundException("Non-existent purchaseitem!"));
     }
 }
