@@ -1,8 +1,11 @@
 Canteen Spring Boot project.
 
-A projekt része ügyfelek és termékek tárolása.
+A projekt célja, hogy ügyfelek rendeléseit tudja kezelni és tárolni adatbázisban.
+
 Az ügyfelek a frontenden termék-rendeléseket adhatnak le - egyszerre több terméket rendelhetnek és megadhatják a rendelt termékek mennyiségét.
-A rendeléseket adatbázisban tároljuk - és havi szintű riportokat kell tudnunk generálni a termékek fogyásáról és az ügyfelek fogyasztásáról.
+
+Ennek megfelelően ügyfél (Client) és termék (Product) adatokat kell elsősorban kezelnünk. Ezen kívül rendeléseket (Purchase) és a hozzájuk tartozó rendelési tételeket (PurchaseItems) kezeljük és tároljuk. Egy rendelés során rögzítjük, hogy mely ügyfél a megrendelő, mely termékek kerülnek be a rendelésbe és milyen mennyiségben - a PurchaseItems objektumokban kezeljük azt, hogy egy adott termékből mekkora mennyiséget rendelt meg a vásárló egy adott vásárlás keretében.   
+
 
 SQL Scripts: 
 
