@@ -21,7 +21,7 @@ public class ClientService {
         return clientRepo.findAll();
     }
 
-    public Client findClientById(Long id) {
+    public Client findById(Long id) {
         return clientRepo.findById(id).orElseThrow(() -> new ClientNotFoundException("Non-Existent client!"));
     }
 }

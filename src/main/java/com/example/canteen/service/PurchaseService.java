@@ -22,8 +22,12 @@ public class PurchaseService {
         return purchaseRepo.findAll();
     }
 
-    public Purchase findPurchaseById(Long id) {
-        return purchaseRepo.findPurchaseById(id).orElseThrow(() -> new PurchaseNotFoundException("Non-existent purchase!"));
+    public Purchase findById(Long id) {
+        return purchaseRepo.findById(id).orElseThrow(() -> new PurchaseNotFoundException("Non-existent purchase!"));
+    }
+
+    public Purchase addPurchase(Purchase purchase) {
+        return purchaseRepo.save(purchase);
     }
 
 }

@@ -1,4 +1,4 @@
-package com.example.canteen;
+package com.example.canteen.rest;
 
 import com.example.canteen.model.Product;
 import com.example.canteen.service.ProductService;
@@ -28,7 +28,7 @@ public class ProductResource {
 
     @GetMapping("/find/{product_id}")
     public ResponseEntity<Product> getProductById (@PathVariable("product_id") Long productId) {
-        Product product = productService.findProductById(productId);
+        Product product = productService.findById(productId);
         return new ResponseEntity<>(product, HttpStatus.OK);
     }
 }

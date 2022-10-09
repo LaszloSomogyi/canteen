@@ -1,9 +1,7 @@
-package com.example.canteen;
+package com.example.canteen.rest;
 
 import com.example.canteen.model.Client;
-import com.example.canteen.model.Product;
 import com.example.canteen.service.ClientService;
-import com.example.canteen.service.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,7 +28,7 @@ public class ClientResource {
 
     @GetMapping("/find/{client_id}")
     public ResponseEntity<Client> getClientById (@PathVariable("client_id") Long clientId) {
-        Client client = clientService.findClientById(clientId);
+        Client client = clientService.findById(clientId);
         return new ResponseEntity<>(client, HttpStatus.OK);
     }
 }

@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -23,8 +22,8 @@ public class ProductService {
         return productRepo.findAll();
     }
 
-    public Product findProductById(Long id) {
-        return productRepo.findProductById(id).orElseThrow(() -> new ProductNotFoundException("Non-existent product!"));
+    public Product findById(Long id) {
+        return productRepo.findById(id).orElseThrow(() -> new ProductNotFoundException("Non-existent product!"));
     }
 
 }
